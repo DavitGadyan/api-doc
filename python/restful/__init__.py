@@ -3,7 +3,7 @@
 author:kidd
 """
 
-from python.utils.httpUtil import HttpUtil
+from api_doc.python.utils.httpUtil import HttpUtil
 import hashlib
 import hmac
 import time
@@ -87,10 +87,10 @@ class UbiexSDK():
     获取指定账户资金
     '''
 
-    def getFunds(self):
+    def getFunds(self, account: int):
         dit = {
             "accesskey": self.accessKey,
-            "account": 1,
+            "account": account,
             "nonce": getTimestamp(),
         }
         dit["signature"] = getSignature(dit, self.secretKey)
